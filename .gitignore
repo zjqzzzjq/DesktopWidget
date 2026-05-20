@@ -1,0 +1,9 @@
+node_modules/
+release/
+dist/
+build/
+*.spec
+backend/.venv/
+backend/__pycache__/
+frontend/*.log
+*.tmp

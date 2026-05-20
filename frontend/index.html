@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktop Widget</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="widget" id="widget">
+      <section class="clock-panel drag-region">
+        <div class="window-actions no-drag">
+          <button class="icon-button" id="minimizeBtn" title="最小化" type="button">_</button>
+          <button class="icon-button" id="closeBtn" title="关闭" type="button">×</button>
+        </div>
+        <div class="date-line" id="dateLine">0000-00-00 星期一</div>
+        <div class="time-line" id="timeLine">00:00:00</div>
+        <div class="lunar-line">
+          <span id="lunarLine">农历加载中</span>
+          <span class="term-pill" id="solarTerm" hidden></span>
+        </div>
+      </section>
+
+      <section class="weather-panel">
+        <div class="section-head drag-region">
+          <h1>天气</h1>
+          <button class="icon-button no-drag" id="refreshWeatherBtn" title="刷新天气" type="button">↻</button>
+        </div>
+        <div class="weather-main">
+          <span class="temperature" id="temperature">--°</span>
+          <span class="condition" id="condition">等待更新</span>
+        </div>
+        <div class="weather-grid">
+          <span>湿度</span>
+          <strong id="humidity">--</strong>
+          <span>风向</span>
+          <strong id="wind">--</strong>
+        </div>
+        <form class="city-row no-drag" id="cityForm">
+          <input id="cityInput" type="text" maxlength="32" placeholder="自动定位" autocomplete="off" />
+          <button class="primary-button" type="submit">切换</button>
+        </form>
+        <p class="status-line" id="weatherStatus"></p>
+      </section>
+
+      <section class="todo-panel">
+        <div class="section-head drag-region">
+          <h2>待办</h2>
+          <span class="todo-count" id="todoCount">0/0</span>
+        </div>
+        <form class="todo-form no-drag" id="todoForm">
+          <input id="todoInput" type="text" maxlength="200" placeholder="新增待办" autocomplete="off" />
+          <button class="add-button" type="submit" title="新增">+</button>
+        </form>
+        <ul class="todo-list no-drag" id="todoList"></ul>
+      </section>
+
+      <section class="settings-panel no-drag">
+        <label class="range-row">
+          <span>透明度</span>
+          <input id="opacityRange" type="range" min="0.35" max="1" step="0.01" />
+        </label>
+        <label class="switch-row">
+          <span>开机自启</span>
+          <input id="autoStartToggle" type="checkbox" />
+        </label>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

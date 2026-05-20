@@ -1,0 +1,358 @@
+:root {
+  color-scheme: dark;
+  --panel: rgba(20, 24, 27, 0.78);
+  --panel-strong: rgba(29, 34, 38, 0.9);
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f5f3ec;
+  --muted: #b8c0bd;
+  --accent: #6ee7c8;
+  --accent-strong: #37c9a8;
+  --warn: #ffb86b;
+  --danger: #ff7b7b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: transparent;
+  font-family:
+    "Segoe UI",
+    "Microsoft YaHei",
+    Arial,
+    sans-serif;
+  overflow: hidden;
+  letter-spacing: 0;
+}
+
+body {
+  color: var(--text);
+  user-select: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.widget {
+  width: 100vw;
+  height: 100vh;
+  min-width: 320px;
+  min-height: 500px;
+  padding: 14px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 10px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%),
+    var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(22px);
+}
+
+.drag-region {
+  -webkit-app-region: drag;
+}
+
+.no-drag,
+button,
+input,
+.todo-item {
+  -webkit-app-region: no-drag;
+}
+
+.clock-panel,
+.weather-panel,
+.todo-panel,
+.settings-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.clock-panel {
+  position: relative;
+  padding: 18px 14px 16px;
+}
+
+.window-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.icon-button,
+.add-button {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.icon-button:hover,
+.add-button:hover {
+  border-color: rgba(110, 231, 200, 0.55);
+  background: rgba(110, 231, 200, 0.14);
+}
+
+.date-line {
+  padding-right: 68px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.time-line {
+  margin-top: 3px;
+  font-size: 42px;
+  font-weight: 650;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.lunar-line {
+  min-height: 24px;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.term-pill {
+  padding: 3px 8px;
+  color: #20170c;
+  background: var(--warn);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.weather-panel,
+.todo-panel,
+.settings-panel {
+  padding: 12px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.weather-main {
+  height: 58px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.temperature {
+  font-size: 38px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.condition {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px 1fr;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.weather-grid strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.city-row,
+.todo-form {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+input[type="text"] {
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: rgba(110, 231, 200, 0.65);
+}
+
+.primary-button {
+  height: 34px;
+  padding: 0 12px;
+  color: #05251d;
+  background: var(--accent);
+  border: 0;
+  border-radius: 7px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: var(--accent-strong);
+}
+
+.status-line {
+  min-height: 16px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.todo-count {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.todo-list {
+  height: min(170px, 30vh);
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.todo-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.todo-item {
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: 24px 1fr 28px;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.todo-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+.todo-text {
+  min-width: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 20px;
+  outline: none;
+  overflow-wrap: anywhere;
+}
+
+.todo-item.done .todo-text {
+  color: rgba(245, 243, 236, 0.45);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--danger);
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: rgba(255, 123, 123, 0.14);
+}
+
+.settings-panel {
+  display: grid;
+  gap: 10px;
+  background: var(--panel-strong);
+}
+
+.range-row,
+.switch-row {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.switch-row input {
+  justify-self: start;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+@media (max-width: 340px) {
+  .widget {
+    padding: 10px;
+  }
+
+  .time-line {
+    font-size: 36px;
+  }
+
+  .temperature {
+    font-size: 34px;
+  }
+}

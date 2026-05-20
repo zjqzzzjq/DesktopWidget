@@ -1,0 +1,10 @@
+{
+  "city": "",
+  "opacity": 0.86,
+  "autoStart": false,
+  "weatherRefreshMinutes": 30,
+  "bounds": {
+    "width": 360,
+    "height": 540
+  }
+}

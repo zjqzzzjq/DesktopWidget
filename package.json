@@ -1,0 +1,58 @@
+{
+  "name": "desktop-widget",
+  "version": "0.1.0",
+  "description": "轻量化桌面悬浮天气、双显时钟和待办小组件",
+  "main": "frontend/main.js",
+  "author": "DesktopWidget",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack:backend": "pyinstaller --noconfirm --onefile --name DesktopWidgetBackend backend/main.py",
+    "dist:win": "npm run pack:backend && electron-builder --win portable nsis",
+    "dist:mac": "npm run pack:backend && electron-builder --mac dmg"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.local.desktopwidget",
+    "productName": "DesktopWidget",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "frontend/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!__pycache__/**"
+        ]
+      },
+      {
+        "from": "dist",
+        "to": "backend",
+        "filter": [
+          "DesktopWidgetBackend*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.utilities"
+    }
+  }
+}
